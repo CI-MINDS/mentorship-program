@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Chandra Kumar | Career Mentorship</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #2c3e50;
+            --accent: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(175, 33, 33, 0), rgba(219, 199, 199, 0)), url('bk2.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Key Elements */
+        .key-elements {
+            background-color: var(--light);
+        }
+        
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .element-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .element-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .element-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .element-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .benefits .section-title h2 {
+            color: white;
+        }
+        
+        .benefits-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Credentials */
+        .credentials {
+            text-align: center;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .badge {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 200px;
+            transition: var(--transition);
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .badge i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: var(--accent);
+            color: white;
+        }
+        
+        .cta h2 {
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Dr. Chandra<span> B. Kumar</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#elements">Key Elements</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
+          
+            <a href="#contact" class="btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Dr. Chandra B. Kumar</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With over 20 years of specialized experience in career mentoring, Dr. Chandra Kumar has successfully guided more than 150,000 students globally toward achieving their professional aspirations.
+                    His one-to-one mentorship approach provides personalized guidance, support, and advice tailored to each mentee's specific goals and challenges.
+                    Dr. Kumar's methodology focuses on accelerated growth, skill enhancement, and creating clearer career paths for his mentees.</p>
+                </div>
+                <div class="about-image">
+                    <img src="cblogo.png" alt="Dr. Chandra Kumar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Elements Section -->
+    <section id="elements" class="section key-elements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Elements of One-to-One Mentorship</h2>
+            </div>
+            <div class="elements-grid">
+                <div class="element-card">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>Personalized Focus</h3>
+                    <p>Tailored guidance specific to your career goals and challenges</p>
+                </div>
+                <div class="element-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Personal Fulfillment</h3>
+                    <p>Achieve satisfaction and purpose in your professional journey</p>
+                </div>
+                <div class="element-card">
+                    <i class="fas fa-compass"></i>
+                    <h3>Career Guidance</h3>
+                    <p>Expert support in navigating your career path</p>
+                </div>
+                <div class="element-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Goal-Oriented</h3>
+                    <p>Structured approach to achieve specific objectives</p>
+                </div>
+                <div class="element-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Leadership Development</h3>
+                    <p>Cultivate essential leadership qualities and skills</p>
+                </div>
+                <div class="element-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Expanded Network</h3>
+                    <p>Grow your professional connections and opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefits of One-to-One Mentorship</h2>
+            </div>
+            <div class="benefits-content">
+                <h3>For the Mentee:</h3>
+                <ul class="benefits-list">
+                    <li>Access to valuable experience and insights from an industry expert</li>
+                    <li>Skill enhancement and professional growth in your chosen field</li>
+                    <li>Increased confidence and motivation to pursue career goals</li>
+                    <li>Personalized advice tailored to your specific situation</li>
+                    <li>Accountability to help you stay on track with your objectives</li>
+                    <li>Enhanced decision-making abilities for critical career choices</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credentials" class="section credentials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dr. Chandra Kumar's Credentials</h2>
+            </div>
+            <div class="badges">
+                <div class="badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Dean - Training & Placement</h3>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation Ambassador, IIC, MoE</h3>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-award"></i>
+                    <h3>20 Years Excellence</h3>
+                </div>
+            </div>
+            <div class="full-credentials">
+                <p>Dr. Chandra B. Kumar - Dean- Training & Placement-SD&P / Innovative Ambassador, IIC, MOE/ IQAC Member / Sectional Committee Member - ISCA 2023-2024 / Editorial Board Member / Advisor - Entrepreneurship & Startup with 20 Years Excellence</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="section cta">
+        <div class="container">
+            <h2>Ready to Transform Your Career?</h2>
+            <a href="#" class="btn">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">Career<span>Mentor</span></div>
+            <p>Personalized career mentorship for professional growth and success</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Dr. Chandra Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
